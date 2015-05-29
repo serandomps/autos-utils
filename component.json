@@ -1,0 +1,7 @@
+{
+    "name": "autos-utils",
+    "description": "autos-utils component",
+    "scripts": ["index.js"],
+    "main": "index.js",
+    "dependencies": {}
+}
