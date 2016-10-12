@@ -1,7 +1,7 @@
 var cdn = 'https://d1vda6a1j3uyzl.cloudfront.net/';
 
-module.exports.cdn = function () {
-    return cdn;
+module.exports.cdn = function (path) {
+    return cdn + (path || '');
 };
 
 module.exports.cdn288x162 = function (items) {
