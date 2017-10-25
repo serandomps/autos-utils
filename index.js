@@ -1,7 +1,27 @@
+var utils = require('utils');
+
 var cdn = 'https://d1vda6a1j3uyzl.cloudfront.net/';
 
-module.exports.cdn = function (path) {
-    return cdn + (path || '');
+var autos;
+
+module.exports.cdn = function (path, done) {
+    if (autos) {
+        return done(null, autos.cdn + (path || ''));
+    }
+    utils.sync('configs-boot-autos', function (did) {
+        utils.configs('boot-autos', function (err, o) {
+            if (err) {
+                return did(err);
+            }
+            autos = o;
+            did();
+        });
+    }, function (err) {
+        if (err) {
+            return done(err);
+        }
+        done(null, autos.cdn + (path || ''));
+    });
 };
 
 module.exports.cdn288x162 = function (items) {

@@ -1,7 +1,11 @@
 {
     "name": "autos-utils",
     "description": "autos-utils component",
-    "scripts": ["index.js"],
+    "scripts": [
+        "index.js"
+    ],
     "main": "index.js",
-    "dependencies": {}
+    "dependencies": {
+        "serandomps/utils": "master"
+    }
 }
